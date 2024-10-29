@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import = "java.util.ArrayList" %>
 <%@ page import = "dto.Book" %>
+<%@ page import = "dao.BookRepository" %>
 <jsp:useBean id ="bookDAO" class="dao.BookRepository" scope="session" />
 
 <!DOCTYPE html>
@@ -23,7 +24,10 @@
 				<p class="col-md-8 fs-4">BookList</p>
 			</div>
 		</div>
-		
+		<%
+			BookRepository dao = BookRepository.getInstance();
+			ArrayList<Book> listOfBooks = dao.getAllBooks();
+		%>
 		<%
 			ArrayList<Book> listOfBooks = bookDAO.getAllBooks();
 		%>
@@ -35,6 +39,8 @@
 			%>
 			<div class="col-md-4">
 				<div class="h-100 p-2">
+				<img src = "./resources/imges/<%= book.getFilename() %>" style =
+				"width : 250; height : 350" />
 				<h5><strong><%= book.getName() %></strong></h5>
 				<p><%= book.getAuthor() %></p>
 				<p><%= book.getPublisher() %> | <%= book.getUnitPrice() %>원</p>
