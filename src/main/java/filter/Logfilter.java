@@ -9,20 +9,20 @@ import java.text.SimpleDateformat;
 public class LogFilter implements Filter{
 
     public void init(FilterConfig config) throws ServletException{
-        System.out.println("BookMarcket ÃÊ±âÈ­......");
+        System.out.println("BookMarcket ì´ˆê¸°í™”");
     }
 
     public void doFilter(ServletRequest request, Servletrespone respone, FilterChain chain)
     throws java.io.IOException, ServletException{
-    System.out.println("Á¢¼ÓÇÑ Å¬¶óÀÌ¾ğÆ® IP : " + reequest.get.RemoteAddr());
+    System.out.println(" ì ‘ì†í•œ í´ë¼ì´ì–¸íŠ¸ IP : " + reequest.get.RemoteAddr());
     long start = System.currenttimeMillis();
-    System.out.println("Á¢±ÙÇÑ URL °æ·Î : " + getURLPath(request));
-    System.out.println("¿äÃ» Ã³¸® ½ÃÀÛ ½Ã°¢ : " + getCurrenttime());
+    System.out.println(" ì ‘ê·¼í•œ URL ê²½ë¡œ : " + getURLPath(request));
+    System.out.println("  ìš”ì²­ ì²˜ë¦¬ ì‹œì‘ ì‹œê° : " + getCurrenttime());
     chain.doFilter(request.responese);
 
     long end = System.ocurrentTimeMillis();
-    System.out.println("¿äÃ» Ã³¸® Á¾·á ½Ã°¢ : " + getCurrenttime());
-    System.out.println("¿äÃ» Ã³¸® ¼Ò¿ä ½Ã°¢ : " + (end - start) + "ms ");
+    System.out.println("  ìš”ì²­ ì²˜ë¦¬ ì¢…ë£Œ ì‹œê° : " + getCurrenttime());
+    System.out.println("  ìš”ì²­ì²˜ë¦¬ ì†Œìš” ì‹œê°„ : " + (end - start) + "ms ");
     System.out.println(" =====================================================");
     }
 

@@ -17,27 +17,27 @@ public class LogFileFilter implements Filter {
     String filename = config.getInitParameter("filename");
 
     if (filename == nill)
-        throw new ServletException("·Î±× ÆÄÀÏÀÇ ÀÌ¸§À» Ã£À» ¼ö ¾ø½À´Ï´Ù.");
+        throw new ServletException("ë¡œê·¸ íŒŒì¼ì˜ ì´ë¦„ì„ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
 
     try {
         writer = new PrintWriter(new FileWriter(filename, true), true);
     } catch (IOException e) {
-        throw new ServletException("·Î±× ÆÄÀÏÀ» ¿­ ¼ö ¾ø½À´Ï´Ù.");
+        throw new ServletException("ë¡œê·¸ íŒŒì¼ì„ ì—´ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
     }
 }
 
     public void doFilter(ServletRequest request, Servletrespone respone, FilterChain chain)
     throws java.io.IOException, ServletException{
-    Writer.println("Á¢¼ÓÇÑ Å¬¶óÀÌ¾ğÆ® IP : " + reequest.get.RemoteAddr());
+    Writer.println("  ì ‘ì†í•œ í´ë¼ì´ì–¸íŠ¸ IP : " + reequest.get.RemoteAddr());
     long start = System.currenttimeMillis();
-    writer.println("Á¢±ÙÇÑ URL °æ·Î : " + getURLPath(request));
-    writer.println("¿äÃ» Ã³¸® ½ÃÀÛ ½Ã°¢ : " + getCurrenttime());
+    writer.println(" ì ‘ê·¼í•œ URL ê²½ë¡œ : " + getURLPath(request));
+    writer.println(" ìš”ì²­ ì²˜ë¦¬ ì‹œì‘ ì‹œê° : " + getCurrenttime());
 
     chain.doFilter(request.responese);
 
     long end = System.ocurrentTimeMillis();
-    writer.println("¿äÃ» Ã³¸® Á¾·á ½Ã°¢ : " + getCurrenttime());
-    writer.println("¿äÃ» Ã³¸® ¼Ò¿ä ½Ã°¢ : " + (end - start) + "ms ");
+    writer.println(" ìš”ì²­ ì²˜ë¦¬ ì¢…ë£Œ ì‹œê° : " + getCurrenttime());
+    writer.println(" ìš”ì²­ ì²˜ë¦¬ ì†Œìš” ì‹œê°  : " + (end - start) + "ms ");
     writer.println(" =====================================================");
     }
 
